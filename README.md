@@ -1,2 +1,0 @@
-# viscode.github.io
-blog
