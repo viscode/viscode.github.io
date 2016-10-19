@@ -283,7 +283,7 @@ a {
   word-wrap: break-word;
 }
 a:hover {
-  color: #222;
+  color: #0684bd;
   border-bottom-color: #222;
 }
 ul {
@@ -455,11 +455,11 @@ body {
 .header-inner {
   margin: 0 auto;
   padding: 100px 0 70px;
-  width: 700px;
+  width: 1030px;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
-    width: 900px;
+    width: 1400px;
   }
 }
 .main {
@@ -467,11 +467,11 @@ body {
 }
 .main-inner {
   margin: 0 auto;
-  width: 700px;
+  width: 1030px;
 }
 @media (min-width: 1600px) {
   .container .main-inner {
-    width: 900px;
+    width: 1400px;
   }
 }
 .footer {
@@ -484,11 +484,11 @@ body {
 .footer-inner {
   box-sizing: border-box;
   margin: 20px auto;
-  width: 700px;
+  width: 1030px;
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
-    width: 900px;
+    width: 1400px;
   }
 }
 pre,
@@ -683,14 +683,14 @@ pre .javascript .function {
 .page-post-detail .post-type-quote blockquote::before {
   top: -20px;
   background-image: url("../images/quote-l.svg");
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #eee;
 }
 .blockquote-center::after,
 .page-home .post-type-quote blockquote::after,
 .page-post-detail .post-type-quote blockquote::after {
   bottom: -20px;
   background-image: url("../images/quote-r.svg");
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
   background-position: 100% 8px;
 }
 .blockquote-center p,
@@ -745,7 +745,7 @@ pre .javascript .function {
   background: #222;
   border: 2px solid #555;
   text-decoration: none;
-  border-radius: 0;
+  border-radius: 5px;
   transition-property: background-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -820,8 +820,8 @@ pre .javascript .function {
 }
 .pagination .page-number.current {
   color: #fff;
-  background: #ccc;
-  border-top-color: #ccc;
+  background: #eee;
+  border-top-color: #eee;
 }
 @media (max-width: 767px) {
   .pagination {
@@ -854,13 +854,13 @@ pre .javascript .function {
   box-sizing: border-box;
   position: fixed;
   bottom: -100px;
-  right: 50px;
+  right: 20px;
   z-index: 1050;
   padding: 0 6px;
   width: 25px;
-  background: #222;
+  background: #0e83cd;
   font-size: 12px;
-  opacity: 0.6;
+  opacity: 1;
   color: #fff;
   cursor: pointer;
   text-align: center;
@@ -881,7 +881,7 @@ pre .javascript .function {
   }
 }
 .back-to-top.back-to-top-on {
-  bottom: 40px;
+  bottom: 20px;
 }
 .header {
   background: #fff;
@@ -891,7 +891,7 @@ pre .javascript .function {
 }
 .headband {
   height: 3px;
-  background: #222;
+  background: #0684bd;
 }
 .site-meta {
   margin: 0;
@@ -923,7 +923,7 @@ pre .javascript .function {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: normal;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
@@ -1082,7 +1082,7 @@ pre .javascript .function {
 .posts-expand .post-body h6 .header-anchor {
   float: right;
   margin-left: 10px;
-  color: #ccc;
+  color: #eee;
   border-bottom-style: none;
   visibility: hidden;
 }
@@ -1175,7 +1175,7 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: border;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed #eee;
 }
 .posts-collapse .post-header::before {
   content: " ";
@@ -1360,7 +1360,7 @@ pre .javascript .function {
   border-bottom: none;
 }
 .post-nav-item a:hover {
-  color: #222;
+  color: #0684bd;
   border-bottom: none;
 }
 .post-nav-item a:active {
@@ -1377,7 +1377,7 @@ pre .javascript .function {
   margin: 80px auto 60px;
   width: 8%;
   height: 1px;
-  background: #ccc;
+  background: #eee;
   text-align: center;
 }
 .post:last-child .post-eof.post-eof.post-eof {
@@ -1679,7 +1679,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e01df7;
+  background: #170861;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1755,7 +1755,7 @@ pre .javascript .function {
   transition-delay: 0s;
   transition-property: all;
   color: #666;
-  border-bottom-color: #ccc;
+  border-bottom-color: #eee;
 }
 .post-toc ol a:hover {
   color: #000;
@@ -2450,7 +2450,7 @@ body {
 .header {
   position: relative;
   margin: 0 auto;
-  width: 960px;
+  width: 1280px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .header {
@@ -2506,7 +2506,7 @@ body {
   }
 }
 .container .main-inner {
-  width: 960px;
+  width: 1280px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .container .main-inner {
@@ -2522,7 +2522,7 @@ body {
   float: right;
   box-sizing: border-box;
   padding: 40px;
-  width: 700px;
+  width: 1030px;
   background: #fff;
   min-height: 700px;
 }
@@ -2561,7 +2561,7 @@ body {
   display: none;
 }
 .footer-inner {
-  width: 960px;
+  width: 1280px;
 }
 .footer-inner:before {
   content: " ";
@@ -2600,7 +2600,7 @@ body {
 .site-meta {
   padding: 20px 0;
   color: #fff;
-  background: #222;
+  background: #0684bd;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-meta {
@@ -2642,23 +2642,29 @@ body {
 .menu .menu-item {
   display: block;
   margin: 0;
+  border-bottom: 1px solid #f7f7f7;
   list-style: none;
 }
 .menu .menu-item a {
   position: relative;
   box-sizing: border-box;
-  padding: 5px 20px;
+  padding: 10px 20px;
   text-align: left;
   line-height: inherit;
   transition-property: background-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  font-size: 14px;
 }
 .menu .menu-item a:hover,
 .menu-item-active a {
-  background: #f9f9f9;
+  background: #fc6423;
   border-bottom-color: #fff;
+  color: #fff;
+}
+.menu .menu-item a .menu-item-icon {
+  font-size: 18px;
 }
 .menu .menu-item br {
   display: none;
@@ -2672,7 +2678,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #bbb;
+  background-color: #fff;
 }
 .btn-bar {
   background-color: #fff;
@@ -2731,8 +2737,8 @@ body {
   text-decoration: underline;
 }
 .feed-link {
-  border-top: 1px dotted #ccc;
-  border-bottom: 1px dotted #ccc;
+  border-top: 1px dotted #eee;
+  border-bottom: 1px dotted #eee;
   text-align: center;
 }
 .feed-link a {
@@ -2788,7 +2794,7 @@ body {
 .links-of-blogroll {
   margin-top: 20px;
   padding: 3px 0 0;
-  border-top: 1px dotted #ccc;
+  border-top: 1px dotted #eee;
 }
 .links-of-blogroll-title {
   margin-top: 0;
