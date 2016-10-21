@@ -1,0 +1,684 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="在react-native总，view其实就是我们所熟知的div，支持多层嵌套，支持flexbox布局。
+react-native样式：123外联样式：style=&amp;#123;styles.container&amp;#125;内联样式：style=&amp;#123;&amp;#123;………………………………&amp;#125;&amp;#125;多个样式：style=&amp;#123;[styles.container,styles.f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-native系列之View组件">
+<meta property="og:url" content="http://yoursite.com/2016/10/20/react-native系列之View组件/index.html">
+<meta property="og:site_name" content="视觉码农">
+<meta property="og:description" content="在react-native总，view其实就是我们所熟知的div，支持多层嵌套，支持flexbox布局。
+react-native样式：123外联样式：style=&amp;#123;styles.container&amp;#125;内联样式：style=&amp;#123;&amp;#123;………………………………&amp;#125;&amp;#125;多个样式：style=&amp;#123;[styles.container,styles.f">
+<meta property="og:image" content="http://yoursite.com/images/3-1.jpg">
+<meta property="og:updated_time" content="2016-10-21T10:10:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react-native系列之View组件">
+<meta name="twitter:description" content="在react-native总，view其实就是我们所熟知的div，支持多层嵌套，支持flexbox布局。
+react-native样式：123外联样式：style=&amp;#123;styles.container&amp;#125;内联样式：style=&amp;#123;&amp;#123;………………………………&amp;#125;&amp;#125;多个样式：style=&amp;#123;[styles.container,styles.f">
+<meta name="twitter:image" content="http://yoursite.com/images/3-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '7983299',
+      author: 'swimly'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/20/react-native系列之View组件/"/>
+
+
+  <title> react-native系列之View组件 | 视觉码农 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?6d4338bdd3f004652714c69bea8cce80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">视觉码农</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                react-native系列之View组件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-20T14:06:12+08:00" content="2016-10-20">
+              2016-10-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/20/react-native系列之View组件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/20/react-native系列之View组件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在react-native总，view其实就是我们所熟知的div，支持多层嵌套，支持flexbox布局。</p>
+<h4 id="react-native样式："><a href="#react-native样式：" class="headerlink" title="react-native样式："></a>react-native样式：</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">外联样式：style=&#123;styles.container&#125;</div><div class="line">内联样式：style=&#123;&#123;………………………………&#125;&#125;</div><div class="line">多个样式：style=&#123;[styles.container,styles.flex,&#123;……………………&#125;]&#125;</div></pre></td></tr></table></figure>
+<p>以下是按照携程的首页，利用react-native做的简单布局，代码在下方！<br><img src="/images/3-1.jpg" alt=""><br>index.android.js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Sample React Native App</div><div class="line"> * https://github.com/facebook/react-native</div><div class="line"> * @flow</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  AppRegistry,</div><div class="line">  StyleSheet,</div><div class="line">  Text,</div><div class="line">  View,</div><div class="line">  PixelRatio</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;View style=&#123;[styles.full,styles.padding_10]&#125;&gt;</div><div class="line">        &lt;View style=&#123;[styles.sortItem,styles.padding_10,styles.bg_pink]&#125;&gt;</div><div class="line">          &lt;View style=&#123;[styles.center,styles.full]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white,styles.icon,styles.fs_30]&#125;&gt;&amp;#xe600;&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;酒店&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">          &lt;View style=&#123;[styles.full,styles.line_right,styles.line_white,styles.line_left]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;海外酒店&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;特惠酒店&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">          &lt;View style=&#123;[styles.full]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;团购&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;客栈、公寓&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">        &lt;/View&gt;</div><div class="line"></div><div class="line">        &lt;View style=&#123;[styles.sortItem,styles.padding_10,styles.bg_blue]&#125;&gt;</div><div class="line">          &lt;View style=&#123;[styles.center,styles.full]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white,styles.icon,styles.fs_30]&#125;&gt;&amp;#xe602;&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;机票&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">          &lt;View style=&#123;[styles.full,styles.line_right,styles.line_white,styles.line_left]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;火车票&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;国际机票&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">          &lt;View style=&#123;[styles.full]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;汽车票、船票&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;自驾、专车&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">        &lt;/View&gt;</div><div class="line"></div><div class="line">        &lt;View style=&#123;[styles.sortItem,styles.padding_10,styles.bg_green]&#125;&gt;</div><div class="line">          &lt;View style=&#123;[styles.center,styles.full]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white,styles.icon,styles.fs_30]&#125;&gt;&amp;#xe601;&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;旅游&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">          &lt;View style=&#123;[styles.full,styles.line_right,styles.line_white,styles.line_left]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;攻略、身边&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;周边游&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">          &lt;View style=&#123;[styles.full]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;游轮&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;保险、签证&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">        &lt;/View&gt;</div><div class="line"></div><div class="line">        &lt;View style=&#123;[styles.sortItem,styles.padding_10,styles.bg_orange]&#125;&gt;</div><div class="line">          &lt;View style=&#123;[styles.full,styles.line_right,styles.line_white]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;景点、玩乐&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;礼品卡&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">          &lt;View style=&#123;[styles.full,styles.line_right,styles.line_white]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;美食&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;出境WIFI&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">          &lt;View style=&#123;[styles.full]&#125;&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;全球购&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">            &lt;View style=&#123;[styles.full,styles.center,styles.line_top,styles.line_white]&#125;&gt;</div><div class="line">              &lt;Text style=&#123;[styles.color_white]&#125;&gt;更多&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &lt;/View&gt;</div><div class="line">        &lt;/View&gt;</div><div class="line"></div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">icon</span>:&#123;</div><div class="line">    <span class="attr">fontFamily</span>:<span class="string">"iconfont"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">full</span>:&#123;</div><div class="line">    <span class="attr">flex</span>:<span class="number">1</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">fs_30</span>:&#123;</div><div class="line">    <span class="attr">fontSize</span>:<span class="number">50</span>/PixelRatio.get()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">sortItem</span>:&#123;</div><div class="line">    <span class="attr">flexDirection</span>:<span class="string">"row"</span>,</div><div class="line">    <span class="attr">height</span>:<span class="number">80</span>,</div><div class="line">    <span class="attr">borderRadius</span>:<span class="number">5</span>/PixelRatio.get(),</div><div class="line">    <span class="attr">marginBottom</span>:<span class="number">10</span>/PixelRatio.get()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">center</span>:&#123;</div><div class="line">    <span class="attr">justifyContent</span>:<span class="string">"center"</span>,</div><div class="line">    <span class="attr">alignItems</span>:<span class="string">"center"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">padding_10</span>:&#123;</div><div class="line">    <span class="attr">padding</span>:<span class="number">10</span>/PixelRatio.get()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">color_white</span>:&#123;</div><div class="line">    <span class="attr">color</span>:<span class="string">"rgba(255,255,255,0.9)"</span>,</div><div class="line">    <span class="attr">fontSize</span>:<span class="number">14</span>/PixelRatio.get()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">line_left</span>:&#123;</div><div class="line">    <span class="attr">borderLeftWidth</span>:<span class="number">1</span>/PixelRatio.get()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">line_top</span>:&#123;</div><div class="line">    <span class="attr">borderTopWidth</span>:<span class="number">1</span>/PixelRatio.get()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">line_right</span>:&#123;</div><div class="line">    <span class="attr">borderRightWidth</span>:<span class="number">1</span>/PixelRatio.get()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">line_bottom</span>:&#123;</div><div class="line">    <span class="attr">borderBottomWidth</span>:<span class="number">1</span>/PixelRatio.get()</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">line_white</span>:&#123;</div><div class="line">    <span class="attr">borderColor</span>:<span class="string">"rgba(255,255,255,0.4)"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">bg_pink</span>:&#123;</div><div class="line">    <span class="attr">backgroundColor</span>:<span class="string">"#FF7170"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">bg_blue</span>:&#123;</div><div class="line">    <span class="attr">backgroundColor</span>:<span class="string">"#2C8DFC"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">bg_green</span>:&#123;</div><div class="line">    <span class="attr">backgroundColor</span>:<span class="string">"#33A715"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">bg_orange</span>:&#123;</div><div class="line">    <span class="attr">backgroundColor</span>:<span class="string">"#FF9414"</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">AppRegistry.registerComponent(<span class="string">'RN'</span>, () =&gt; RN);</div></pre></td></tr></table></figure></p>
+<p>重点提示一下，这里面所有的图标都是用的<a href="http://iconfont.cn/plus" target="_blank" rel="external">iconfont</a>的图标，网页中怎么用iconfont，我相信大多数人都会，但是react-native怎么用iconfont，刚刚接触的时候我是懵逼的，经过一番百度，最后终于找到解决方法：<a href="https://github.com/NativeSH/react-native-iconic-font" target="_blank" rel="external">react-native-iconic-font</a>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save react-native-iconic-font</div></pre></td></tr></table></figure></p>
+<p>切记，这一步的时候，如果你的react-native还在运行着，请先停止服务，不然模块会安装失败！<br>安装完成之后，将你的iconfont文件拷贝到如下目录：[project root]/android/app/src/main/assets/fonts/，这里只需要ttf文件即可。<br>然后你就可以像网页那般自由的调用iconfont了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="swimly wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="swimly WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="swimly Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/20/react-native系列之flexbox布局/" rel="next" title="react-native系列之flexbox布局">
+                <i class="fa fa-chevron-left"></i> react-native系列之flexbox布局
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/20/react-native系列之View组件/"
+           data-title="react-native系列之View组件" data-url="http://yoursite.com/2016/10/20/react-native系列之View组件/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="swimly" />
+          <p class="site-author-name" itemprop="name">swimly</p>
+          <p class="site-description motion-element" itemprop="description">代码也可以很优雅！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/swimly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1731910511/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/swimly/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/yong-liu-11" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#react-native样式："><span class="nav-number">1.</span> <span class="nav-text">react-native样式：</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">swimly</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"viscode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
