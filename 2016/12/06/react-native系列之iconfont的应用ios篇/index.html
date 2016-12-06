@@ -1,0 +1,707 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="前不久，阿里旗下iconfont网站迎来重大升级，这对于广大前端同胞来说简直是福音啊有木有，我们不仅仅能做出纯色的iconfont，还能在页面中插入多色的图标，而且应用方式也很简单，权当引用一个css文件而已，然而现在react-native正是风生水起，越来越多的小伙伴投入到rn的开发。然而对于图标的选择，我们也不能类似之前的ios，或者android开发那样，利用无数的png来替代，先不说安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-native系列之iconfont的应用ios篇">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/react-native系列之iconfont的应用ios篇/index.html">
+<meta property="og:site_name" content="视觉码农">
+<meta property="og:description" content="前不久，阿里旗下iconfont网站迎来重大升级，这对于广大前端同胞来说简直是福音啊有木有，我们不仅仅能做出纯色的iconfont，还能在页面中插入多色的图标，而且应用方式也很简单，权当引用一个css文件而已，然而现在react-native正是风生水起，越来越多的小伙伴投入到rn的开发。然而对于图标的选择，我们也不能类似之前的ios，或者android开发那样，利用无数的png来替代，先不说安装">
+<meta property="og:image" content="http://yoursite.com/images/2016120601.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120602.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120603.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120605.jpg">
+<meta property="og:image" content="http://yoursite.com/images/2016120606.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120607.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120608.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120609.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120610.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120611.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120612.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120613.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120614.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120615.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120616.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120617.png">
+<meta property="og:image" content="http://yoursite.com/images/2016120618.png">
+<meta property="og:updated_time" content="2016-12-06T09:12:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react-native系列之iconfont的应用ios篇">
+<meta name="twitter:description" content="前不久，阿里旗下iconfont网站迎来重大升级，这对于广大前端同胞来说简直是福音啊有木有，我们不仅仅能做出纯色的iconfont，还能在页面中插入多色的图标，而且应用方式也很简单，权当引用一个css文件而已，然而现在react-native正是风生水起，越来越多的小伙伴投入到rn的开发。然而对于图标的选择，我们也不能类似之前的ios，或者android开发那样，利用无数的png来替代，先不说安装">
+<meta name="twitter:image" content="http://yoursite.com/images/2016120601.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '7983299',
+      author: 'swimly'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/06/react-native系列之iconfont的应用ios篇/"/>
+
+
+  <title> react-native系列之iconfont的应用ios篇 | 视觉码农 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?6d4338bdd3f004652714c69bea8cce80";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">视觉码农</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                react-native系列之iconfont的应用ios篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-06T14:33:09+08:00" content="2016-12-06">
+              2016-12-06
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/06/react-native系列之iconfont的应用ios篇/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/06/react-native系列之iconfont的应用ios篇/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前不久，阿里旗下iconfont网站迎来重大升级，这对于广大前端同胞来说简直是福音啊有木有，我们不仅仅能做出纯色的iconfont，还能在页面中插入多色的图标，而且应用方式也很简单，权当引用一个css文件而已，然而现在react-native正是风生水起，越来越多的小伙伴投入到rn的开发。然而对于图标的选择，我们也不能类似之前的ios，或者android开发那样，利用无数的png来替代，先不说安装包大小的问题，总之用起来就很不爽，今天就来了解一下怎么在react-native中利用iconfont，而且这些icon你完全可以自定义，而不是现今一些比较流行的icon框架，比如fontawesome，或者ionicon。<br><a id="more"></a></p>
+<h6 id="注意：本篇文章主要讲解ios的应用，所以以下教程都是在mac上进行！"><a href="#注意：本篇文章主要讲解ios的应用，所以以下教程都是在mac上进行！" class="headerlink" title="注意：本篇文章主要讲解ios的应用，所以以下教程都是在mac上进行！"></a>注意：本篇文章主要讲解ios的应用，所以以下教程都是在mac上进行！</h6><p>当然，前提是，你已经安装好react-native，xcode，以及你所擅用的ide，具体的步骤请参照<a href="http://reactnative.cn/docs/0.39/getting-started.html#content" target="_blank" rel="external">这里</a>。如果你不想配置这么复杂的环境，你也可以直接下载<a href="https://www.decosoftware.com/" target="_blank" rel="external">DECO IDE</a>,可以快速创建react-native应用。</p>
+<h2 id="利用DECOIDE快速创建react-native项目"><a href="#利用DECOIDE快速创建react-native项目" class="headerlink" title="利用DECOIDE快速创建react-native项目"></a>利用DECOIDE快速创建react-native项目</h2><p>下载deco并完成安装，如下图所示，即可快速创建react-native项目（目前只有mac版本的）<br><img style="margin:20px 0;" src="/images/2016120601.png" alt=""><br><img style="margin:0 0;" src="/images/2016120602.png" alt=""><br>保存当前项目！</p>
+<h2 id="安装项目依赖"><a href="#安装项目依赖" class="headerlink" title="安装项目依赖"></a>安装项目依赖</h2><p>在项目根目录打开终端：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install react-native-vector-icons --save</div></pre></td></tr></table></figure></p>
+<p><img style="margin:0 0;" src="/images/2016120603.png" alt=""></p>
+<h2 id="下载项目所需icon"><a href="#下载项目所需icon" class="headerlink" title="下载项目所需icon"></a>下载项目所需icon</h2><p>目前有众多iconfont网站，推荐<a href="http://www.iconfont.cn/plus" target="_blank" rel="external">iconfont.cn</a>，除了平台提供的图标意外，你也可以上传自己做的图标svg文件，便可以很方便的生成iconfont文件。在这里为了测试，选择了一些图标<br><img style="margin:0 0;" src="/images/2016120605.jpg" alt=""></p>
+<h2 id="获取字体文件的map"><a href="#获取字体文件的map" class="headerlink" title="获取字体文件的map"></a>获取字体文件的map</h2><p>推荐<a href="https://github.com/bob-chen/react-native-iconfont-mapper" target="_blank" rel="external">https://github.com/bob-chen/react-native-iconfont-mapper</a>，下载该项目源码到本地，也可以用git获取该项目源码。<br> 1、安装python，因为该工具是基于python开发。<br> 2、安装<a href="https://github.com/fonttools/fonttools" target="_blank" rel="external">fonttools</a>，安装方法请参见github项目介绍。<br> 以上两部完成后，打开上面下载的iconfont文件，将里面的iconfont.ttf文件拷贝到react-native-iconfont-mapper项目根目录，并在该位置打开终端。<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python iconfont-mapper.py iconfont.ttf iconfont.js</div></pre></td></tr></table></figure></p>
+<p> <img style="margin:0 0;" src="/images/2016120606.png" alt=""><br> 最终会生成一个iconfont.js文件，如下图：<br> <img style="margin:0 0;" src="/images/2016120607.png" alt=""><br> 接着打开项目node_modules &gt; react-native-vector-icons，新建Iconfont.js文件，代码如下：<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> createIconSet <span class="keyword">from</span> <span class="string">'./lib/create-icon-set'</span>;</div><div class="line"><span class="keyword">import</span> glyphMap <span class="keyword">from</span> <span class="string">'./glyphmaps/Iconfont.json'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> createIconSet(glyphMap, <span class="string">'Iconfont'</span>, <span class="string">'Iconfont.ttf'</span>);</div></pre></td></tr></table></figure></p>
+<p> 接着打开node_modules &gt; react-native-vector-icons &gt; glyphmaps新建Iconfont.json文件，直接将上面生成的map对象拷贝过来，记得要把后面的字符串改成数字。<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"> &#123;</div><div class="line">    <span class="string">"tongxunluxianxing-copy-copy"</span>:<span class="number">58880</span>,</div><div class="line">    <span class="string">"tubiao04"</span>:<span class="number">59010</span>,</div><div class="line">    <span class="string">"fanhui"</span>:<span class="number">58883</span>,</div><div class="line">    <span class="string">"Contact"</span>:<span class="number">58884</span>,</div><div class="line">    <span class="string">"caidanheng"</span>:<span class="number">58885</span>,</div><div class="line">    <span class="string">"dongtai2"</span>:<span class="number">58881</span>,</div><div class="line">    <span class="string">"dongtai"</span>:<span class="number">58890</span>,</div><div class="line">    <span class="string">"article"</span>:<span class="number">58891</span>,</div><div class="line">    <span class="string">"dongtai1"</span>:<span class="number">58892</span>,</div><div class="line">    <span class="string">"wenzhang"</span>:<span class="number">59533</span>,</div><div class="line">    <span class="string">"p-photo"</span>:<span class="number">59022</span>,</div><div class="line">    <span class="string">"tishi2"</span>:<span class="number">59025</span>,</div><div class="line">    <span class="string">"paizhao"</span>:<span class="number">58898</span>,</div><div class="line">    <span class="string">"right"</span>:<span class="number">58899</span>,</div><div class="line">    <span class="string">"paizhao1"</span>:<span class="number">59029</span>,</div><div class="line">    <span class="string">"right1"</span>:<span class="number">59030</span>,</div><div class="line">    <span class="string">"right2"</span>:<span class="number">58909</span>,</div><div class="line">    <span class="string">"ttpodicon"</span>:<span class="number">58911</span>,</div><div class="line">    <span class="string">"xiangce"</span>:<span class="number">59556</span>,</div><div class="line">    <span class="string">"tianjiadizhi"</span>:<span class="number">58917</span>,</div><div class="line">    <span class="string">"fudai"</span>:<span class="number">58921</span>,</div><div class="line">    <span class="string">"saomiao"</span>:<span class="number">58887</span>,</div><div class="line">    <span class="string">"wenzhang1"</span>:<span class="number">59576</span>,</div><div class="line">    <span class="string">"my"</span>:<span class="number">58942</span>,</div><div class="line">    <span class="string">"close"</span>:<span class="number">58951</span>,</div><div class="line">    <span class="string">"shezhi"</span>:<span class="number">59020</span>,</div><div class="line">    <span class="string">"erweima"</span>:<span class="number">59098</span>,</div><div class="line">    <span class="string">"iconfont05"</span>:<span class="number">59123</span>,</div><div class="line">    <span class="string">"jinlingyingcaiwangtubiao53"</span>:<span class="number">59326</span>,</div><div class="line">    <span class="string">"tongxunlu"</span>:<span class="number">59015</span>,</div><div class="line">    <span class="string">"x"</span>:<span class="number">120</span>,</div><div class="line">    <span class="string">"home"</span>:<span class="number">59003</span>,</div><div class="line">    <span class="string">"fabu"</span>:<span class="number">59006</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>将下载下来的iconfont.ttf拷贝到node_modules &gt; react-native-vector-icons &gt; Fonts<br><img style="margin:0 0;" src="/images/2016120608.png" alt=""></p>
+<h2 id="在xcode中配置环境并且打包项目"><a href="#在xcode中配置环境并且打包项目" class="headerlink" title="在xcode中配置环境并且打包项目"></a>在xcode中配置环境并且打包项目</h2><p>进入到react-native项目中的ios<br> <img style="margin:0 0;" src="/images/2016120609.png" alt=""><br> 双击打开，并且将node_modules &gt; react-native-vector-icons中的Fonts目录直接拖到xcode项目中<br><img style="margin:0 0;" src="/images/2016120610.png" alt=""><br> 接着将node_modules &gt; react-native-vector-icons中的RNVectorIcons.xcodeproj拖到Libraries中<br> <img style="margin:0 0;" src="/images/2016120611.png" alt=""><br> 打开xcode项目中的Project&gt;Info.plist,在Information Property List中新增一条Fonts Provided by application，并且在下面的item中填入字体的名称，这里可以填多个。<br><img style="margin:0 0;" src="/images/2016120612.png" alt=""><br>其实到这里就差不多了，如果你项目中要用到TabBar/NavigatorIOS这两个组件，还需如下操作，在项目中选中Build Phases，在Link Binary With Libraries中添加libRNVectorIcons.a。<br><img style="margin:0 0;" src="/images/2016120613.png" alt=""><br>然后打包项目即可，如下操作<br><img style="margin:0 0;" src="/images/2016120614.png" alt=""><br>但是如果你的xcode已经升级到最新版，不出意外会报两个错误的<br><img style="margin:0 0;" src="/images/2016120615.png" alt=""><br>我们以此选中两条错误，会定在：SecRandomCopyBytes(kSecRandomDefault, keyBytes.length, keyBytes.mutableBytes);这个位置<br><img style="margin:0 0;" src="/images/2016120616.png" alt=""><br>只需要在报错的最前面加上(void)即可，到这里只能算暂时解决目前报的两个错误，还需要修改RCTScrollView.m,不然会报 Use of undeclared identifier ‘_refreshControl’; did you mean ‘refreshControl’?错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@implementation RCTCustomScrollView</div><div class="line"></div><div class="line">&#123;</div><div class="line"></div><div class="line">__weak UIView *_dockedHeaderView;</div><div class="line"></div><div class="line">RCTRefreshControl *_refreshControl; //加入此行</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>RCTScrollView.m 位于Xcode项目中libraries下React.xcodeproj / React / View 中<br>这时候我们再次build我们的项目就不会报错了。到这里就静待项目在模拟器中跑起来。<br><img style="margin:0 0;" src="/images/2016120617.png" alt=""></p>
+<h2 id="在项目中使用-iconfont"><a href="#在项目中使用-iconfont" class="headerlink" title="在项目中使用 iconfont"></a>在项目中使用 iconfont</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import Icon from &apos;react-native-vector-icons/Iconfont&apos;;</div><div class="line"></div><div class="line">&lt;Icon name=&quot;home&quot; size=&#123;50&#125; color=&quot;green&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>最终index.ios.js代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">import React, &#123; Component &#125; from &apos;react&apos;;</div><div class="line">import &#123;</div><div class="line">  AppRegistry,</div><div class="line">  StyleSheet,</div><div class="line">  Text,</div><div class="line">  View</div><div class="line">&#125; from &apos;react-native&apos;;</div><div class="line">import Icon from &apos;react-native-vector-icons/Iconfont&apos;;</div><div class="line">class Project extends Component &#123;</div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;Icon name=&quot;home&quot; size=&#123;50&#125; color=&quot;green&quot;/&gt;</div><div class="line">        &lt;Text style=&#123;&#123;fontFamily:&quot;iconfont&quot;,fontSize:50,color:&quot;red&quot;&#125;&#125;&gt;&amp;#xe67b;&lt;/Text&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const styles = StyleSheet.create(&#123;</div><div class="line">  container: &#123;</div><div class="line">    flex: 1,</div><div class="line">    justifyContent: &apos;center&apos;,</div><div class="line">    alignItems: &apos;center&apos;,</div><div class="line">    backgroundColor: &apos;#F5FCFF&apos;,</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">AppRegistry.registerComponent(&apos;Project&apos;, () =&gt; Project);</div></pre></td></tr></table></figure></p>
+<p>至此就可以看到icon老老实实的出现在页面中<br><img style="margin:0 0;" src="/images/2016120618.png" alt=""><br>最后做点总结，虽然过程并非很难，但是中途可能多多少少有些坑，还需要自己不断去摸索，其实最难的估计就是获取字体文件的键值对了，各种环境可能有些麻烦，还有，最后提醒一下，也就是获取到json之后直接复制过去之后一定记得去掉value后面的引号，不然<icon>形式的icon就没用了。</icon></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="swimly wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="swimly WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="swimly Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/20/react-native系列之View组件/" rel="next" title="react-native系列之View组件">
+                <i class="fa fa-chevron-left"></i> react-native系列之View组件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/06/react-native系列之iconfont的应用ios篇/"
+           data-title="react-native系列之iconfont的应用ios篇" data-url="http://yoursite.com/2016/12/06/react-native系列之iconfont的应用ios篇/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="swimly" />
+          <p class="site-author-name" itemprop="name">swimly</p>
+          <p class="site-description motion-element" itemprop="description">代码也可以很优雅！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/swimly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1731910511/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/swimly/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/yong-liu-11" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#注意：本篇文章主要讲解ios的应用，所以以下教程都是在mac上进行！"><span class="nav-number">1.</span> <span class="nav-text">注意：本篇文章主要讲解ios的应用，所以以下教程都是在mac上进行！</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用DECOIDE快速创建react-native项目"><span class="nav-number"></span> <span class="nav-text">利用DECOIDE快速创建react-native项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装项目依赖"><span class="nav-number"></span> <span class="nav-text">安装项目依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载项目所需icon"><span class="nav-number"></span> <span class="nav-text">下载项目所需icon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取字体文件的map"><span class="nav-number"></span> <span class="nav-text">获取字体文件的map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在xcode中配置环境并且打包项目"><span class="nav-number"></span> <span class="nav-text">在xcode中配置环境并且打包项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在项目中使用-iconfont"><span class="nav-number"></span> <span class="nav-text">在项目中使用 iconfont</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">swimly</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"viscode"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
